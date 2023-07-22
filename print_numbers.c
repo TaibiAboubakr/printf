@@ -9,15 +9,16 @@ int put_int_d(int n, int count)
 {
 if (n / 10 == 0)
 {
-_putchar(n + 48);
+__putchar(n + 48);
 return (count + 1);
 }
 if (n / 10 > 0)
 {
 count = put_int_d(n / 10, count);
-_putchar((n % 10) + 48);
+__putchar((n % 10) + 48);
 return (count + 1);
 }
+return (count);
 }
 /**
  * put_str_s - write a string to stdout
@@ -37,7 +38,7 @@ return (6);
 
 while (p[j] != '\0')
 {
-_putchar(p[j]);
+__putchar(p[j]);
 j++;
 count++;
 }

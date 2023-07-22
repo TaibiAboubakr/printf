@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdio.h>
-int _putchar(char);
+int __putchar(char);
 int _puts(char *);
 int _slen(char *);
 int _printf(const char *format, ...);

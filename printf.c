@@ -21,7 +21,7 @@ count += _puts(str);
 break;
 case 'c':
 c = va_arg(args, int);
-_putchar(c);
+__putchar(c);
 count++;
 break;
 case 'd':
@@ -29,7 +29,7 @@ d = va_arg(args, int);
 if (d < 0)
 {
 d = -d;
-_putchar('-');
+__putchar('-');
 count++;
 }
 count += put_int_d(d, 0);
@@ -81,12 +81,12 @@ for (i = 0; f[i]; i++)
 {
 if (f[i] != '%')
 {
-_putchar(f[i]);
+__putchar(f[i]);
 c++;
 }
 if  (f[i] == '%' && f[i + 1] == '%')
 {
-_putchar('%');
+__putchar('%');
 c++;
 i++;
 }

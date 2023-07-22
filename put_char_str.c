@@ -1,6 +1,5 @@
-#include <unistd.h>
-#include <stdio.h>
 #include "main.h"
+#include <unistd.h>
 
 /**
  * _slen - function that calculate lenght of string
@@ -33,13 +32,13 @@ int _puts(char *c)
 	return (write(1, c, _slen(c)));
 }
 /**
- * _putchar - write the character c to stdout
+ * __putchar - write the character c to stdout
  * @c: The character to print
  * Return: 1 : On success .
  *        -1 : is returned, and errno is set appropriately.
  */
 
-int _putchar(char c)
+int __putchar(char c)
 {
 	return (write(1, &c, 1));
 }
