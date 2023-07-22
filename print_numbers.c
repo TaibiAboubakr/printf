@@ -7,7 +7,14 @@
  */
 int put_int_d(int n, int count)
 {
-if (n < 0)
+if (n == -2147483648)
+{
+__putchar('-');
+__putchar(2 + '0');
+count += 2;
+n = 147483648;
+}
+if (n < 0 && n > -2147483648)
 {
 __putchar('-');
 count++;
