@@ -11,7 +11,7 @@ int switching(va_list args, char plh)
 {
 int count = 0;
 char c;
-char *d;
+int d;
 char *str;
 switch (plh)
 {
@@ -29,8 +29,12 @@ __putchar('%');
 count++;
 break;
 case 'd':
-d = va_arg(args, char *);
-count += print_number(d);
+d = va_arg(args, int);
+count += put_int_d(d, 0);
+break;
+case 'i':
+d = va_arg(args, int);
+count += put_int_d(d, 0);
 break;
 default:
 break;
