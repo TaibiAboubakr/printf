@@ -24,6 +24,10 @@ c = va_arg(args, int);
 __putchar(c);
 count++;
 break;
+case '%':
+__putchar('%');
+count++;
+break;
 case 'd':
 d = va_arg(args, int);
 if (d < 0)
@@ -75,6 +79,8 @@ int i, c = 0;
 const char *f = format;
 va_list args;
 va_start(args, format);
+if (format == NULL)
+return (-1);
 if (f == NULL || f[0] == '\0' || (f[0] == '%' && f[1] == '\0'))
 return (-1);
 for (i = 0; f[i]; i++)
@@ -84,13 +90,7 @@ if (f[i] != '%')
 __putchar(f[i]);
 c++;
 }
-if  (f[i] == '%' && f[i + 1] == '%')
-{
-__putchar('%');
-c++;
-i++;
-}
-if (f[i - 1] != '%' && f[i] == '%')
+if (f[i] == '%')
 {
 i++;
 i = skipflags(f, i);
