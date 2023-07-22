@@ -37,6 +37,9 @@ d = va_arg(args, int);
 count += put_int_d(d, 0);
 break;
 default:
+__putchar('%');
+__putchar(plh);
+count += 2;
 break;
 }
 return (count);
