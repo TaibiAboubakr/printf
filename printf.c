@@ -35,6 +35,9 @@ break;
 case 'i':
 d = va_arg(args, int);
 count += put_int_d(d, 0);
+case 'b':
+d = va_arg(args, int);
+count += convert_binary(d);
 break;
 default:
 __putchar('%');
