@@ -74,8 +74,10 @@ const char *f = format;
 va_list args;
 va_start(args, format);
 
-if (f == NULL || f[0] == '\0' || (f[0] == '%' && f[1] == '\0'))
+if (f == NULL  || (f[0] == '%' && f[1] == '\0'))
 return (-1);
+if (f[0] == '\0')
+return (0);
 for (i = 0; f[i]; i++)
 {
 if (f[i] != '%')
