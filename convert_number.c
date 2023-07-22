@@ -1,23 +1,42 @@
 #include "main.h"
+#include <stdlib.h>
+
 /**
  * convert_binary - function that convert decimal number to binary
  * @n : number to be converted
  * Return: Number of characters that has been printed
  */
-int convert_binary(int n)
+int convert_binary(unsigned int n)
 {
-	int arr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
-	int check = 0, count = 0, i;
+	unsigned int *p, n1 = n;
+	int check = 0, count = 0, i, k, j = 0;
 
-	for (i = 0; i < 8; i++)
+	if ((n == 0 || n == 1) && count == 0)
 	{
+		__putchar(n + '0');
+		count++;
+		return (count);
+	}
+	while (n1 / 2 > 0)
+	{
+		j++;
+		n1 = n1 / 2;
+	}
+	p = (unsigned int *)malloc(sizeof(unsigned int) * j);
+	if (p == NULL)
+		exit(-1);
+	i = j;
+	for (k = 0; k <= j; k++, i--)
+		p[k] = _pow(2, i);
 
-		if (n / arr[i] > 0)
+	for (i = 0; i <= j; i++)
+	{
+		if (n / p[i] > 0)
 		{
 			check = 1;
 			__putchar('1');
 			count++;
-			n = n - arr[i];
+			n = n - p[i];
 		}
 		else
 		{
@@ -27,5 +46,6 @@ int convert_binary(int n)
 			count++;
 		}
 	}
+	free(p);
 	return (count);
 }
