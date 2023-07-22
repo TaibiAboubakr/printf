@@ -10,8 +10,8 @@
 int switching(va_list args, char plh)
 {
 int count = 0;
-int d;
 char c;
+char *d;
 char *str;
 switch (plh)
 {
@@ -29,14 +29,8 @@ __putchar('%');
 count++;
 break;
 case 'd':
-d = va_arg(args, int);
-if (d < 0)
-{
-d = -d;
-__putchar('-');
-count++;
-}
-count += put_int_d(d, 0);
+d = va_arg(args, char *);
+count += print_number(d);
 break;
 default:
 break;
@@ -75,7 +69,7 @@ return (i);
 
 int _printf(const char *format, ...)
 {
-int i, c = 0;
+int i, c = 0, r;
 const char *f = format;
 va_list args;
 va_start(args, format);
@@ -93,7 +87,10 @@ if (f[i] == '%')
 {
 i++;
 i = skipflags(f, i);
-c += switching(args, f[i]);
+r = switching(args, f[i]);
+if (r == -1)
+exit(-1);
+c += r;
 }
 }
 va_end(args);
