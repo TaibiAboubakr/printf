@@ -47,5 +47,6 @@ int convert_binary(unsigned int n)
 			count++;
 		}
 	}
+	free(p);
 	return (count);
 }
