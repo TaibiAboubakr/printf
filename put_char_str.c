@@ -19,7 +19,7 @@ int _slen(char *s)
 /**
  * _puts - writes the character c to stdout
  * @c: pointer to string
- * Return: On success 1.
+ * Return: number of characters printed.
  * On error, -1 is returned, and errno is set appropriately.
  */
 
@@ -33,10 +33,10 @@ int _puts(char *c)
 	return (write(1, c, _slen(c)));
 }
 /**
- * _putchar - writes the character c to stdout
+ * _putchar - write the character c to stdout
  * @c: The character to print
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 1 : On success .
+ *        -1 : is returned, and errno is set appropriately.
  */
 
 int _putchar(char c)

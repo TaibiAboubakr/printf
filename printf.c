@@ -1,88 +1,100 @@
 #include "main.h"
 #include <stdarg.h>
 
-int put_str_s(char *p)
+/**
+ * switching -  switch between the placeholders.
+ * @args: argument.
+ * @plh: placeholder
+ * Return: number of characters skipped.
+ */
+int switching(va_list args, char plh)
 {
-int j = 0;
 int count = 0;
-if (p == NULL){
-_puts("(null)");
-return (6);
-}
-/* printf("hello from putarg\n"); */
-while (p[j] != '\0')
+int d;
+char c;
+char *str;
+switch (plh)
 {
-/* printf("hello %c\n",p[j]); */
-_putchar(p[j]);
-j++;
+case 's':
+str = va_arg(args, char *);
+count += _puts(str);
+break;
+case 'c':
+c = va_arg(args, int);
+_putchar(c);
 count++;
+break;
+case 'd':
+d = va_arg(args, int);
+if (d < 0)
+{
+d = -d;
+_putchar('-');
+count++;
+}
+count += put_int_d(d, 0);
+break;
+default:
+break;
 }
 return (count);
 }
-
-int put_int_d(int n,int count)
+/**
+ * skipflags -  function that skip all unused flags.
+ * @f: pointer to format
+ * @i: index
+ * Return: number of characters skipped.
+ */
+int skipflags(const char *f, int i)
 {
-if (n / 10 == 0)
+while (f[i] == '-' || f[i] == '+' || f[i] == ' ' || f[i] == '#' || f[i] == '0')
+i++;
+while (f[i] >= 48 && f[i] <= 57)
+i++;
+if (f[i] == '.')
 {
-_putchar(n + 48);
-return (count + 1);
+i++;
+while (f[i] >= 48 && f[i] <= 57)
+i++;
 }
-if (n / 10 > 0){
-count = put_int_d(n / 10, count);
-_putchar((n % 10) + 48);
-return(count + 1);
+while (f[i] == 'l' || f[i] == 'L' || f[i] == 'h' || f[i] == 'z' || f[i] == 't'
+|| f[i] == 'j')
+i++;
+return (i);
 }
-}
-
-
 /**
  * _printf -  function that produces output according to a format.
  * @format: pointer to a constant character (or string) data type(placeholders)
  * Return: number of characters printed (excluding the null byte
  *         used to end output to strings)
  */
+
 int _printf(const char *format, ...)
 {
-int i, x, c = 0;
-char plh;
-char *parg;
+int i, c = 0;
+const char *f = format;
 va_list args;
 va_start(args, format);
-if (format == NULL || format[0]== '\0' || (format[0]=='%' && format[1] == '\0'))
+if (f == NULL || f[0] == '\0' || (f[0] == '%' && f[1] == '\0'))
 return (-1);
-printf("tst\n");
-for (i = 0; format[i]; i++){
-if (format[i] != '%'){
-x = format[i];
-_putchar(x);
+for (i = 0; f[i]; i++)
+{
+if (f[i] != '%')
+{
+_putchar(f[i]);
 c++;
 }
-if  (format[i] == '%' && format[i + 1] == '%'){
+if  (f[i] == '%' && f[i + 1] == '%')
+{
 _putchar('%');
 c++;
-i+2;
-}
-if (format[i] == '%'){
 i++;
-plh = format[i];
-if (plh == 's'){
-parg = va_arg(args, char *);
-c += _puts(parg);
 }
-if (plh == 'c'){
-char cr = va_arg(args, int);
-_putchar(cr);
-c++;
-}
-if (plh == 'd'){
-int d = va_arg(args, int);
-if (d < 0){
-d = -d;
-_putchar('-');
-c++;
-}
-c += put_int_d(d,0);
-}
+if (f[i - 1] != '%' && f[i] == '%')
+{
+i++;
+i = skipflags(f, i);
+c += switching(args, f[i]);
 }
 }
 va_end(args);
