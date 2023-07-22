@@ -69,7 +69,7 @@ return (i);
 
 int _printf(const char *format, ...)
 {
-int i, c = 0, r;
+int i, c = 0;
 const char *f = format;
 va_list args;
 va_start(args, format);
@@ -87,10 +87,7 @@ if (f[i] == '%')
 {
 i++;
 i = skipflags(f, i);
-r = switching(args, f[i]);
-if (r == -1)
-exit(-1);
-c += r;
+c += switching(args, f[i]);
 }
 }
 va_end(args);

@@ -25,7 +25,7 @@ int _slen(char *s)
 int _puts(char *c)
 {
 	if (c == (char *)0)
-	return (-1);
+		exit(-1);
 	if (c == NULL)
 	{
 		_puts("(null)");

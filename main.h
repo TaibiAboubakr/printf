@@ -11,7 +11,7 @@ int put_int_d(int n, int);
 int switching(va_list, char);
 int skipflags(const char *f, int i);
 int print_number(char *str);
-int is_hex_oct_dec(char* str);
+int is_hex_oct_dec(char *str);
 int _atoi(char *s);
 int _pow(int base, int exp);
 #endif /* MAIN_H */
