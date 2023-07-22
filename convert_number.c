@@ -9,6 +9,12 @@ int convert_binary(unsigned int n)
 	unsigned int arr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
 	int check = 0, count = 0, i;
 
+	if (n == 0)
+	{
+	__putchar('0');
+	count++;
+	return (count);
+	}
 	for (i = 0; i < 8; i++)
 	{
 
