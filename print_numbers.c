@@ -7,6 +7,12 @@
  */
 int put_int_d(int n, int count)
 {
+if (n < 0)
+{
+__putchar('-');
+count++;
+n = n * -1;
+}
 if (n / 10 == 0)
 {
 __putchar(n + 48);
