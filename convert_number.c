@@ -18,7 +18,7 @@ int convert_binary(unsigned int n)
 	n1 = n1 / 2;
 	}
 
-	p = (int *)malloc(sizeof(unsigned int) * j);
+	p = (unsigned int *)malloc(sizeof(unsigned int) * j);
 	if (p == NULL)
 	exit(-1);
 	i = j;
