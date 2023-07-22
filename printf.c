@@ -9,9 +9,9 @@
  */
 int switching(va_list args, char plh)
 {
-int count = 0;
+int count = 0, d;
 char c;
-int d;
+unsigned int u;
 char *str;
 switch (plh)
 {
@@ -37,8 +37,8 @@ d = va_arg(args, int);
 count += put_int_d(d, 0);
 break;
 case 'b':
-d = va_arg(args, int);
-count += convert_binary(d);
+u = va_arg(args, unsigned int);
+count += convert_binary(u);
 break;
 default:
 __putchar('%');

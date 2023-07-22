@@ -4,9 +4,9 @@
  * @n : number to be converted
  * Return: Number of characters that has been printed
  */
-int convert_binary(int n)
+int convert_binary(unsigned int n)
 {
-	int arr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+	unsigned int arr[8] = {128, 64, 32, 16, 8, 4, 2, 1};
 	int check = 0, count = 0, i;
 
 	for (i = 0; i < 8; i++)

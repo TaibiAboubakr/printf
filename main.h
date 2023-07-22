@@ -14,6 +14,6 @@ int print_number(char *str);
 int is_hex_oct_dec(char *str);
 int _atoi(char *s);
 int _pow(int base, int exp);
-int convert_binary(int);
+int convert_binary(unsigned int);
 
 #endif /* MAIN_H */
