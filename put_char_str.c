@@ -68,7 +68,7 @@ int _putS(char *c)
 	if (*c < 15)
 	__putchar(48);
 	convert_hex_upper((*c), 0);
-	count += 3;
+	count += 4;
 	c++;
 	}
 	__putchar(*c);
