@@ -57,6 +57,7 @@ int switching1(va_list args, char plh)
 {
 int count = 0;
 unsigned int u;
+char *str;
 switch (plh)
 {
 case 'u':
@@ -74,6 +75,10 @@ break;
 case 'X':
 u = va_arg(args, unsigned int);
 count += convert_hex_upper(u, 0);
+break;
+case 'S':
+str = va_arg(args, unsigned char*);
+count += _putS(str);
 break;
 default:
 __putchar('%');
