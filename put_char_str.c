@@ -91,7 +91,7 @@ int rot13(char *str)
 	char *p = NULL;
 	int i = 0, j = 0, len;
 	char letters[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char r13[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+	char r13[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 		if (str == NULL)
 		{
