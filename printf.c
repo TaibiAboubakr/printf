@@ -84,6 +84,10 @@ case 'R':
 str = va_arg(args, char*);
 count += rot13(str);
 break;
+case 'r':
+str = va_arg(args, char*);
+count += put_rev(str);
+break;
 default:
 __putchar('%');
 __putchar(plh);

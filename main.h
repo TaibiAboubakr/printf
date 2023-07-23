@@ -22,6 +22,7 @@ int convert_hex(unsigned int n, int count);
 int convert_hex_upper(unsigned int n, int count);
 int _putS(char *c);
 int rot13(char *str);
+int put_rev(char *str);
 /**
  * struct hex - struct match number with specific char in hex
  * @n: number in base hexa
