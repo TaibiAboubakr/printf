@@ -68,11 +68,12 @@ u = va_arg(args, unsigned int);
 count += convert_octal(u, 0);
 break;
 case 'x':
-__putchar('%');
-count++;
+u = va_arg(args, unsigned int);
+count += convert_hex(u, 0);
 break;
 case 'X':
-
+u = va_arg(args, unsigned int);
+count += convert_hex_upper(u, 0);
 break;
 default:
 __putchar('%');

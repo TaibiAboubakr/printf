@@ -18,5 +18,18 @@ int _pow(int base, int exp);
 int convert_binary(unsigned int);
 int put_uint(unsigned int n, int count);
 int convert_octal(unsigned int n, int count);
+int convert_hex(unsigned int n, int count);
+int convert_hex_upper(unsigned int n, int count);
+
+/**
+ * struct hex - struct match number with specific char in hex
+ * @n: number in base hexa
+ * @c: char
+ */
+typedef struct hex
+{
+unsigned int n;
+char c;
+} match_hex;
 
 #endif /* MAIN_H */

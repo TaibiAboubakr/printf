@@ -73,3 +73,101 @@ return (count + 1);
 }
 return (count);
 }
+
+
+/**
+ * convert_hex - function that convert decimal number to lowercase hexa
+ * @n : number to be converted
+ * @count: Counter that count number of printed characters
+ * Return: Number of characters that has been printed
+ */
+int convert_hex(unsigned int n, int count)
+{
+match_hex hexa_conv[15] = {
+{1, '1'}, {2, '2'},
+{3, '3'}, {4, '4'},
+{5, '5'}, {6, '6'},
+{7, '7'}, {8, '8'},
+{9, '9'}, {10, 'a'},
+{11, 'b'}, {12, 'c'},
+{13, 'd'}, {14, 'e'},
+{15, 'f'}
+};
+int i;
+
+if (n == 0)
+{
+__putchar(48);
+return (1);
+}
+if (n / 16 == 0)
+{
+for (i = 0; i < 15; i++)
+{
+if ((n % 16) == hexa_conv[i].n)
+__putchar(hexa_conv[i].c);
+}
+return (count + 1);
+}
+if (n / 16 > 0)
+{
+count = convert_hex(n / 16, count);
+for (i = 0; i < 15; i++)
+{
+if ((n % 16) == hexa_conv[i].n)
+__putchar(hexa_conv[i].c);
+}
+return (count + 1);
+}
+
+return (count);
+}
+
+
+/**
+ * convert_hex_upper - function that convert decimal number to uppercase hexa
+ * @n : number to be converted
+ * @count: Counter that count number of printed characters
+ * Return: Number of characters that has been printed
+ */
+int convert_hex_upper(unsigned int n, int count)
+{
+match_hex hexa_conv[15] = {
+{1, '1'}, {2, '2'},
+{3, '3'}, {4, '4'},
+{5, '5'}, {6, '6'},
+{7, '7'}, {8, '8'},
+{9, '9'}, {10, 'A'},
+{11, 'B'}, {12, 'C'},
+{13, 'D'}, {14, 'E'},
+{15, 'F'}
+};
+int i;
+
+if (n == 0)
+{
+__putchar(48);
+return (1);
+}
+if (n / 16 == 0)
+{
+for (i = 0; i < 15; i++)
+{
+if ((n % 16) == hexa_conv[i].n)
+__putchar(hexa_conv[i].c);
+}
+return (count + 1);
+}
+if (n / 16 > 0)
+{
+count = convert_hex_upper(n / 16, count);
+for (i = 0; i < 15; i++)
+{
+if ((n % 16) == hexa_conv[i].n)
+__putchar(hexa_conv[i].c);
+}
+return (count + 1);
+}
+
+return (count);
+}
