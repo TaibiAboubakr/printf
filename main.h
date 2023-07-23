@@ -17,6 +17,6 @@ int _atoi(char *s);
 int _pow(int base, int exp);
 int convert_binary(unsigned int);
 int put_uint(unsigned int n, int count);
-int convert_octal(unsigned int n);
+int convert_octal(unsigned int n, int count);
 
 #endif /* MAIN_H */

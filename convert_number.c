@@ -53,13 +53,23 @@ int convert_binary(unsigned int n)
 /**
  * convert_octal - function that convert decimal number to octal
  * @n : number to be converted
+ * @count: Counter that count number of printed characters
  * Return: Number of characters that has been printed
  */
-int convert_octal(unsigned int n)
+int convert_octal(unsigned int n, int count)
 {
-	int count = 0;
 
-	(void)n;
+if (n / 8 == 0)
+{
 
-	return (count);
+__putchar((n % 8) + 48);
+return (count + 1);
+}
+if (n / 8 > 0)
+{
+count = convert_octal(n / 8, count);
+__putchar((n % 8) + 48);
+return (count + 1);
+}
+return (count);
 }

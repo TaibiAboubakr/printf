@@ -64,8 +64,8 @@ u = va_arg(args, unsigned int);
 count += put_uint(u, 0);
 break;
 case 'o':
-
-count++;
+u = va_arg(args, unsigned int);
+count += convert_octal(u, 0);
 break;
 case 'x':
 __putchar('%');
