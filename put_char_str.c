@@ -120,6 +120,7 @@ break;
 }
 }
 p[len] = '\0';
+free(p);
 return (_puts(p));
 
 }
