@@ -62,21 +62,21 @@ int _putS(char *c)
 	}
 	while (*c)
 	{
-	if ((*c > 0 && *c < 32) || (*c >= 127))
-	{
-	_puts("\\x");
-	if (*c < 15)
-	__putchar(48);
-	convert_hex_upper((*c), 0);
-	count += 4;
-	c++;
-	if (!*c)
-	return (count);
+		if ((*c > 0 && *c < 32) || (*c >= 127))
+		{
+			_puts("\\x");
+			if (*c < 15)
+				__putchar(48);
+			convert_hex_upper((*c), 0);
+			count += 4;
+			c++;
+			if (!*c)
+				return (count);
 
-	}
-	__putchar(*c);
-	c++;
-	count++;
+		}
+		__putchar(*c);
+		c++;
+		count++;
 	}
 	return (count);
 }
@@ -88,40 +88,36 @@ int _putS(char *c)
  */
 int rot13(char *str)
 {
-char *p = NULL;
-int i = 0, j = 0;
-int len;
-char letters[52] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
-'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-char r13[52] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'N', 'O'
-, 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'
-, 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'};
+	char *p = NULL;
+	int i = 0, j = 0, len;
+	char letters[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char r13[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
 
-
-if (str == NULL)
-{
-	_puts("(null)");
-	return (6);
-}
-len = _slen(str);
-p = (char *)malloc(sizeof(char) * (len + 1));
-for (i = 0; str[i] != '\0'; i++)
-{
-for (j = 0; j < 52; j++)
-{
-if (str[i] == letters[j])
-{
-p[i] = r13[j];
-break;
-}
-}
-}
-p[len] = '\0';
-if (p)
-free(p);
-return (_puts(p));
-
+		if (str == NULL)
+		{
+			_puts("(null)");
+			return (6);
+		}
+	len = _slen(str);
+	p = (char *)malloc(sizeof(char) * (len + 1));
+	if (p == NULL)
+		return (-1);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (str[i] == letters[j])
+			{
+				p[i] = r13[j];
+				break;
+			}
+			else
+				p[i] = str[i];
+		}
+	}
+	p[len] = '\0';
+	i = _puts(p);
+	if (p != NULL)
+		free(p);
+	return (i);
 }
