@@ -70,6 +70,9 @@ int _putS(char *c)
 	convert_hex_upper((*c), 0);
 	count += 4;
 	c++;
+	if (!*c)
+	return (count);
+
 	}
 	__putchar(*c);
 	c++;
