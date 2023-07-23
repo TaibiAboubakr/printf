@@ -102,7 +102,7 @@ return (1);
 }
 if (n / 16 == 0)
 {
-for (i = 0; i < 15; i++)
+for (i = 0; i < 16; i++)
 {
 if ((n % 16) == hexa_conv[i].n)
 __putchar(hexa_conv[i].c);
@@ -112,7 +112,7 @@ return (count + 1);
 if (n / 16 > 0)
 {
 count = convert_hex(n / 16, count);
-for (i = 0; i < 15; i++)
+for (i = 0; i < 16; i++)
 {
 if ((n % 16) == hexa_conv[i].n)
 __putchar(hexa_conv[i].c);
@@ -151,7 +151,7 @@ return (1);
 }
 if (n / 16 == 0)
 {
-for (i = 0; i < 15; i++)
+for (i = 0; i < 16; i++)
 {
 if ((n % 16) == hexa_conv[i].n)
 __putchar(hexa_conv[i].c);
@@ -161,7 +161,7 @@ return (count + 1);
 if (n / 16 > 0)
 {
 count = convert_hex_upper(n / 16, count);
-for (i = 0; i < 15; i++)
+for (i = 0; i < 16; i++)
 {
 if ((n % 16) == hexa_conv[i].n)
 __putchar(hexa_conv[i].c);
