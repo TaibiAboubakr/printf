@@ -88,7 +88,7 @@ int _putS(char *c)
  */
 int rot13(char *str)
 {
-char *p;
+char *p = NULL;
 int i = 0, j = 0;
 int len;
 char letters[52] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -120,6 +120,7 @@ break;
 }
 }
 p[len] = '\0';
+if (p)
 free(p);
 return (_puts(p));
 
