@@ -15,7 +15,7 @@ int put_rev(char *str)
 		_puts("(null)");
 		return (6);
 	}
-	p = malloc(_slen(str) + 1)
+	p = malloc(_slen(str) + 1);
 		if (p == NULL)
 			return (-1);
 	j = _slen(str) - 1;
