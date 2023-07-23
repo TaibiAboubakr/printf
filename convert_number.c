@@ -22,13 +22,11 @@ int convert_binary(unsigned int n)
 		j++;
 		n1 = n1 / 2;
 	}
-	p = (unsigned int *)malloc(sizeof(unsigned int) * j);
+	p = (unsigned int *)malloc(sizeof(unsigned int) * (j + 1));
 	if (p == NULL)
-		exit(-1);
-	i = j;
-	for (k = 0; k <= j; k++, i--)
+		return (-1);
+	for (i = j, k = 0; k <= j; k++, i--)
 		p[k] = _pow(2, i);
-
 	for (i = 0; i <= j; i++)
 	{
 		if (n / p[i] > 0)
@@ -40,12 +38,14 @@ int convert_binary(unsigned int n)
 		}
 		else
 		{
-			if (check == 0)
-				continue;
+			if (check != 0)
+			{
 			__putchar('0');
 			count++;
+			}
 		}
 	}
+	if (p != NULL)
 	free(p);
 	return (count);
 }
