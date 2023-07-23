@@ -65,7 +65,7 @@ int _putS(char *c)
 		if ((*c > 0 && *c < 32) || (*c >= 127))
 		{
 			_puts("\\x");
-			if (*c < 15)
+			if (*c <= 15)
 				__putchar(48);
 			convert_hex_upper((*c), 0);
 			count += 4;
