@@ -41,6 +41,40 @@ u = va_arg(args, unsigned int);
 count += convert_binary(u);
 break;
 default:
+count += switching1(args, plh);
+break;
+}
+return (count);
+}
+
+/**
+ * switching1 -  switch between the placeholders.
+ * @args: argument.
+ * @plh: placeholder
+ * Return: number of characters skipped.
+ */
+int switching1(va_list args, char plh)
+{
+int count = 0;
+unsigned int u;
+switch (plh)
+{
+case 'u':
+u = va_arg(args, unsigned int);
+count += put_uint(u, 0);
+break;
+case 'o':
+
+count++;
+break;
+case 'x':
+__putchar('%');
+count++;
+break;
+case 'X':
+
+break;
+default:
 __putchar('%');
 __putchar(plh);
 count += 2;

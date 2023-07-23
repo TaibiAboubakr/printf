@@ -49,3 +49,16 @@ int convert_binary(unsigned int n)
 	free(p);
 	return (count);
 }
+
+/**
+ * convert_octal - function that convert decimal number to octal
+ * @n : number to be converted
+ * Return: Number of characters that has been printed
+ */
+int convert_octal(unsigned int n)
+{
+
+	int count = 0;
+
+	return (count);
+}
