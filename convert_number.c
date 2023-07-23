@@ -57,8 +57,9 @@ int convert_binary(unsigned int n)
  */
 int convert_octal(unsigned int n)
 {
-
 	int count = 0;
+
+	(void)n;
 
 	return (count);
 }
