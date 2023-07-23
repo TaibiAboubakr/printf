@@ -83,8 +83,8 @@ return (count);
  */
 int convert_hex(unsigned int n, int count)
 {
-match_hex hexa_conv[15] = {
-{1, '1'}, {2, '2'},
+match_hex hexa_conv[16] = {
+{0, '0'}, {1, '1'}, {2, '2'},
 {3, '3'}, {4, '4'},
 {5, '5'}, {6, '6'},
 {7, '7'}, {8, '8'},
@@ -132,8 +132,8 @@ return (count);
  */
 int convert_hex_upper(unsigned int n, int count)
 {
-match_hex hexa_conv[15] = {
-{1, '1'}, {2, '2'},
+match_hex hexa_conv[16] = {
+{0, '0'}, {1, '1'}, {2, '2'},
 {3, '3'}, {4, '4'},
 {5, '5'}, {6, '6'},
 {7, '7'}, {8, '8'},
