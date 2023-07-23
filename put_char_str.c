@@ -45,7 +45,7 @@ int __putchar(char c)
 
 /**
  * _putS - writes the character c to stdout with change no_printable characters
- * with hexadecimal values.
+ * with your hexadecimal values.
  * @c: pointer to string
  * Return: number of characters printed.
  * On error, -1 is returned, and errno is set appropriately.

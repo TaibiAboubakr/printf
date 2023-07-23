@@ -77,7 +77,7 @@ u = va_arg(args, unsigned int);
 count += convert_hex_upper(u, 0);
 break;
 case 'S':
-str = va_arg(args, unsigned char*);
+str = va_arg(args, char*);
 count += _putS(str);
 break;
 default:
