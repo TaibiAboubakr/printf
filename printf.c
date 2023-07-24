@@ -89,9 +89,7 @@ str = va_arg(args, char*);
 count += put_rev(str);
 break;
 default:
-__putchar('%');
-__putchar(plh);
-count += 2;
+count += switching2(args, plh);
 break;
 }
 return (count);
