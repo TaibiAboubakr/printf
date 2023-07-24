@@ -9,9 +9,14 @@
  */
 int switching2(va_list args, char plh)
 {
+int count = 0, d;
+char c;
+unsigned int u;
+char *str;
 void *ptr;
 uintptr_t  addr;
-
+switch (plh)
+{
 case 'p':
 ptr = va_arg(args, void*);
 addr = (uintptr_t)ptr;
