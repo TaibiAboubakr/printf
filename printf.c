@@ -13,6 +13,7 @@ int switching(va_list args, char plh)
 	char c;
 	unsigned int u;
 	char *str;
+
 	switch (plh)
 	{
 		case 's':
@@ -58,6 +59,7 @@ int switching1(va_list args, char plh)
 	int count = 0;
 	unsigned int u;
 	char *str;
+
 	switch (plh)
 	{
 		case 'u':
@@ -105,6 +107,7 @@ int switching2(va_list args, char plh)
 	int count = 0;
 	void *ptr;
 	uintptr_t  addr;
+
 	switch (plh)
 	{
 		case 'p':
@@ -129,7 +132,8 @@ int switching2(va_list args, char plh)
  */
 int skipflags(const char *f, int i)
 {
-	while (f[i] == '-' || f[i] == '+' || f[i] == ' ' || f[i] == '#' || f[i] == '0')
+	while (f[i] == '-' || f[i] == '+' || f[i] == ' ' || f[i] == '#'
+			|| f[i] == '0')
 		i++;
 	while (f[i] >= 48 && f[i] <= 57)
 		i++;
@@ -156,6 +160,7 @@ int _printf(const char *format, ...)
 	int i, c = 0;
 	const char *f = format;
 	va_list args;
+
 	va_start(args, format);
 
 	if (f == NULL  || (f[0] == '%' && f[1] == '\0'))
