@@ -25,6 +25,7 @@ int _putS(char *c);
 int rot13(char *str);
 int put_rev(char *str);
 int print_addr(uintptr_t num);
+int switching2(va_list args, char plh);
 /**
  * struct hex - struct match number with specific char in hex
  * @n: number in base hexa
