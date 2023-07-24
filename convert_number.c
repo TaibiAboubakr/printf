@@ -40,13 +40,13 @@ int convert_binary(unsigned int n)
 		{
 			if (check != 0)
 			{
-			__putchar('0');
-			count++;
+				__putchar('0');
+				count++;
 			}
 		}
 	}
 	if (p != NULL)
-	free(p);
+		free(p);
 	return (count);
 }
 
@@ -59,19 +59,19 @@ int convert_binary(unsigned int n)
 int convert_octal(unsigned int n, int count)
 {
 
-if (n / 8 == 0)
-{
+	if (n / 8 == 0)
+	{
 
-__putchar((n % 8) + 48);
-return (count + 1);
-}
-if (n / 8 > 0)
-{
-count = convert_octal(n / 8, count);
-__putchar((n % 8) + 48);
-return (count + 1);
-}
-return (count);
+		__putchar((n % 8) + 48);
+		return (count + 1);
+	}
+	if (n / 8 > 0)
+	{
+		count = convert_octal(n / 8, count);
+		__putchar((n % 8) + 48);
+		return (count + 1);
+	}
+	return (count);
 }
 
 
@@ -83,44 +83,44 @@ return (count);
  */
 int convert_hex(unsigned int n, int count)
 {
-match_hex hexa_conv[16] = {
-{0, '0'}, {1, '1'}, {2, '2'},
-{3, '3'}, {4, '4'},
-{5, '5'}, {6, '6'},
-{7, '7'}, {8, '8'},
-{9, '9'}, {10, 'a'},
-{11, 'b'}, {12, 'c'},
-{13, 'd'}, {14, 'e'},
-{15, 'f'}
-};
-int i;
+	match_hex hexa_conv[16] = {
+		{0, '0'}, {1, '1'}, {2, '2'},
+		{3, '3'}, {4, '4'},
+		{5, '5'}, {6, '6'},
+		{7, '7'}, {8, '8'},
+		{9, '9'}, {10, 'a'},
+		{11, 'b'}, {12, 'c'},
+		{13, 'd'}, {14, 'e'},
+		{15, 'f'}
+	};
+	int i;
 
-if (n == 0)
-{
-__putchar(48);
-return (1);
-}
-if (n / 16 == 0)
-{
-for (i = 0; i < 16; i++)
-{
-if ((n % 16) == hexa_conv[i].n)
-__putchar(hexa_conv[i].c);
-}
-return (count + 1);
-}
-if (n / 16 > 0)
-{
-count = convert_hex(n / 16, count);
-for (i = 0; i < 16; i++)
-{
-if ((n % 16) == hexa_conv[i].n)
-__putchar(hexa_conv[i].c);
-}
-return (count + 1);
-}
+	if (n == 0)
+	{
+		__putchar(48);
+		return (1);
+	}
+	if (n / 16 == 0)
+	{
+		for (i = 0; i < 16; i++)
+		{
+			if ((n % 16) == hexa_conv[i].n)
+				__putchar(hexa_conv[i].c);
+		}
+		return (count + 1);
+	}
+	if (n / 16 > 0)
+	{
+		count = convert_hex(n / 16, count);
+		for (i = 0; i < 16; i++)
+		{
+			if ((n % 16) == hexa_conv[i].n)
+				__putchar(hexa_conv[i].c);
+		}
+		return (count + 1);
+	}
 
-return (count);
+	return (count);
 }
 
 
@@ -132,42 +132,42 @@ return (count);
  */
 int convert_hex_upper(unsigned int n, int count)
 {
-match_hex hexa_conv[16] = {
-{0, '0'}, {1, '1'}, {2, '2'},
-{3, '3'}, {4, '4'},
-{5, '5'}, {6, '6'},
-{7, '7'}, {8, '8'},
-{9, '9'}, {10, 'A'},
-{11, 'B'}, {12, 'C'},
-{13, 'D'}, {14, 'E'},
-{15, 'F'}
-};
-int i;
+	match_hex hexa_conv[16] = {
+		{0, '0'}, {1, '1'}, {2, '2'},
+		{3, '3'}, {4, '4'},
+		{5, '5'}, {6, '6'},
+		{7, '7'}, {8, '8'},
+		{9, '9'}, {10, 'A'},
+		{11, 'B'}, {12, 'C'},
+		{13, 'D'}, {14, 'E'},
+		{15, 'F'}
+	};
+	int i;
 
-if (n == 0)
-{
-__putchar(48);
-return (1);
-}
-if (n / 16 == 0)
-{
-for (i = 0; i < 16; i++)
-{
-if ((n % 16) == hexa_conv[i].n)
-__putchar(hexa_conv[i].c);
-}
-return (count + 1);
-}
-if (n / 16 > 0)
-{
-count = convert_hex_upper(n / 16, count);
-for (i = 0; i < 16; i++)
-{
-if ((n % 16) == hexa_conv[i].n)
-__putchar(hexa_conv[i].c);
-}
-return (count + 1);
-}
+	if (n == 0)
+	{
+		__putchar(48);
+		return (1);
+	}
+	if (n / 16 == 0)
+	{
+		for (i = 0; i < 16; i++)
+		{
+			if ((n % 16) == hexa_conv[i].n)
+				__putchar(hexa_conv[i].c);
+		}
+		return (count + 1);
+	}
+	if (n / 16 > 0)
+	{
+		count = convert_hex_upper(n / 16, count);
+		for (i = 0; i < 16; i++)
+		{
+			if ((n % 16) == hexa_conv[i].n)
+				__putchar(hexa_conv[i].c);
+		}
+		return (count + 1);
+	}
 
-return (count);
+	return (count);
 }
