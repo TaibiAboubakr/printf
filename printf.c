@@ -9,42 +9,42 @@
  */
 int switching(va_list args, char plh)
 {
-int count = 0, d;
-char c;
-unsigned int u;
-char *str;
-switch (plh)
-{
-case 's':
-str = va_arg(args, char *);
-count += _puts(str);
-break;
-case 'c':
-c = va_arg(args, int);
-__putchar(c);
-count++;
-break;
-case '%':
-__putchar('%');
-count++;
-break;
-case 'd':
-d = va_arg(args, int);
-count += put_int_d(d, 0);
-break;
-case 'i':
-d = va_arg(args, int);
-count += put_int_d(d, 0);
-break;
-case 'b':
-u = va_arg(args, unsigned int);
-count += convert_binary(u);
-break;
-default:
-count += switching1(args, plh);
-break;
-}
-return (count);
+	int count = 0, d;
+	char c;
+	unsigned int u;
+	char *str;
+	switch (plh)
+	{
+		case 's':
+			str = va_arg(args, char *);
+			count += _puts(str);
+			break;
+		case 'c':
+			c = va_arg(args, int);
+			__putchar(c);
+			count++;
+			break;
+		case '%':
+			__putchar('%');
+			count++;
+			break;
+		case 'd':
+			d = va_arg(args, int);
+			count += put_int_d(d, 0);
+			break;
+		case 'i':
+			d = va_arg(args, int);
+			count += put_int_d(d, 0);
+			break;
+		case 'b':
+			u = va_arg(args, unsigned int);
+			count += convert_binary(u);
+			break;
+		default:
+			count += switching1(args, plh);
+			break;
+	}
+	return (count);
 }
 
 /**
@@ -55,44 +55,44 @@ return (count);
  */
 int switching1(va_list args, char plh)
 {
-int count = 0;
-unsigned int u;
-char *str;
-switch (plh)
-{
-case 'u':
-u = va_arg(args, unsigned int);
-count += put_uint(u, 0);
-break;
-case 'o':
-u = va_arg(args, unsigned int);
-count += convert_octal(u, 0);
-break;
-case 'x':
-u = va_arg(args, unsigned int);
-count += convert_hex(u, 0);
-break;
-case 'X':
-u = va_arg(args, unsigned int);
-count += convert_hex_upper(u, 0);
-break;
-case 'S':
-str = va_arg(args, char*);
-count += _putS(str);
-break;
-case 'R':
-str = va_arg(args, char*);
-count += rot13(str);
-break;
-case 'r':
-str = va_arg(args, char*);
-count += put_rev(str);
-break;
-default:
-count += switching2(args, plh);
-break;
-}
-return (count);
+	int count = 0;
+	unsigned int u;
+	char *str;
+	switch (plh)
+	{
+		case 'u':
+			u = va_arg(args, unsigned int);
+			count += put_uint(u, 0);
+			break;
+		case 'o':
+			u = va_arg(args, unsigned int);
+			count += convert_octal(u, 0);
+			break;
+		case 'x':
+			u = va_arg(args, unsigned int);
+			count += convert_hex(u, 0);
+			break;
+		case 'X':
+			u = va_arg(args, unsigned int);
+			count += convert_hex_upper(u, 0);
+			break;
+		case 'S':
+			str = va_arg(args, char*);
+			count += _putS(str);
+			break;
+		case 'R':
+			str = va_arg(args, char*);
+			count += rot13(str);
+			break;
+		case 'r':
+			str = va_arg(args, char*);
+			count += put_rev(str);
+			break;
+		default:
+			count += switching2(args, plh);
+			break;
+	}
+	return (count);
 }
 /**
  * switching2 -  switch between the placeholders.
@@ -102,23 +102,23 @@ return (count);
  */
 int switching2(va_list args, char plh)
 {
-int count = 0;
-void *ptr;
-uintptr_t  addr;
-switch (plh)
-{
-case 'p':
-ptr = va_arg(args, void*);
-addr = (uintptr_t)ptr;
-count += print_addr(addr);
-break;
-default:
-__putchar('%');
-__putchar(plh);
-count += 2;
-break;
-}
-return (count);
+	int count = 0;
+	void *ptr;
+	uintptr_t  addr;
+	switch (plh)
+	{
+		case 'p':
+			ptr = va_arg(args, void*);
+			addr = (uintptr_t)ptr;
+			count += print_addr(addr);
+			break;
+		default:
+			__putchar('%');
+			__putchar(plh);
+			count += 2;
+			break;
+	}
+	return (count);
 }
 
 /**
@@ -129,20 +129,20 @@ return (count);
  */
 int skipflags(const char *f, int i)
 {
-while (f[i] == '-' || f[i] == '+' || f[i] == ' ' || f[i] == '#' || f[i] == '0')
-i++;
-while (f[i] >= 48 && f[i] <= 57)
-i++;
-if (f[i] == '.')
-{
-i++;
-while (f[i] >= 48 && f[i] <= 57)
-i++;
-}
-while (f[i] == 'l' || f[i] == 'L' || f[i] == 'h' || f[i] == 'z' || f[i] == 't'
-|| f[i] == 'j')
-i++;
-return (i);
+	while (f[i] == '-' || f[i] == '+' || f[i] == ' ' || f[i] == '#' || f[i] == '0')
+		i++;
+	while (f[i] >= 48 && f[i] <= 57)
+		i++;
+	if (f[i] == '.')
+	{
+		i++;
+		while (f[i] >= 48 && f[i] <= 57)
+			i++;
+	}
+	while (f[i] == 'l' || f[i] == 'L' || f[i] == 'h' || f[i] == 'z' || f[i] == 't'
+			|| f[i] == 'j')
+		i++;
+	return (i);
 }
 /**
  * _printf -  function that produces output according to a format.
@@ -153,32 +153,32 @@ return (i);
 
 int _printf(const char *format, ...)
 {
-int i, c = 0;
-const char *f = format;
-va_list args;
-va_start(args, format);
+	int i, c = 0;
+	const char *f = format;
+	va_list args;
+	va_start(args, format);
 
-if (f == NULL  || (f[0] == '%' && f[1] == '\0'))
-return (-1);
-if (f[0] == '\0')
-return (0);
-for (i = 0; f[i]; i++)
-{
-if (f[i] != '%')
-{
-__putchar(f[i]);
-c++;
-}
-if (f[i] == '%' && f[i + 1] == '\0')
-return (-1);
-if (f[i] == '%')
-{
-i++;
-i = skipflags(f, i);
-c += switching(args, f[i]);
-}
-}
-va_end(args);
-return (c);
+	if (f == NULL  || (f[0] == '%' && f[1] == '\0'))
+		return (-1);
+	if (f[0] == '\0')
+		return (0);
+	for (i = 0; f[i]; i++)
+	{
+		if (f[i] != '%')
+		{
+			__putchar(f[i]);
+			c++;
+		}
+		if (f[i] == '%' && f[i + 1] == '\0')
+			return (-1);
+		if (f[i] == '%')
+		{
+			i++;
+			i = skipflags(f, i);
+			c += switching(args, f[i]);
+		}
+	}
+	va_end(args);
+	return (c);
 
 }

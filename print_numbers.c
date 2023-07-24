@@ -7,31 +7,31 @@
  */
 int put_int_d(int n, int count)
 {
-if (n == -2147483648)
-{
-__putchar('-');
-__putchar(2 + '0');
-count += 2;
-n = 147483648;
-}
-if (n < 0 && n > -2147483648)
-{
-__putchar('-');
-count++;
-n = n * -1;
-}
-if (n / 10 == 0)
-{
-__putchar(n + 48);
-return (count + 1);
-}
-if (n / 10 > 0)
-{
-count = put_int_d(n / 10, count);
-__putchar((n % 10) + 48);
-return (count + 1);
-}
-return (count);
+	if (n == -2147483648)
+	{
+		__putchar('-');
+		__putchar(2 + '0');
+		count += 2;
+		n = 147483648;
+	}
+	if (n < 0 && n > -2147483648)
+	{
+		__putchar('-');
+		count++;
+		n = n * -1;
+	}
+	if (n / 10 == 0)
+	{
+		__putchar(n + 48);
+		return (count + 1);
+	}
+	if (n / 10 > 0)
+	{
+		count = put_int_d(n / 10, count);
+		__putchar((n % 10) + 48);
+		return (count + 1);
+	}
+	return (count);
 }
 
 /**
@@ -43,10 +43,11 @@ return (count);
 
 int _pow(int base, int exp)
 {
-int result = 1, i;
-for (i = 0; i < exp; i++)
-result *= base;
-return (result);
+	int result = 1, i;
+
+	for (i = 0; i < exp; i++)
+		result *= base;
+	return (result);
 }
 
 /**
@@ -58,16 +59,16 @@ return (result);
 int put_uint(unsigned int n, int count)
 {
 
-if (n / 10 == 0)
-{
-__putchar(n + 48);
-return (count + 1);
-}
-if (n / 10 > 0)
-{
-count = put_uint(n / 10, count);
-__putchar((n % 10) + 48);
-return (count + 1);
-}
-return (count);
+	if (n / 10 == 0)
+	{
+		__putchar(n + 48);
+		return (count + 1);
+	}
+	if (n / 10 > 0)
+	{
+		count = put_uint(n / 10, count);
+		__putchar((n % 10) + 48);
+		return (count + 1);
+	}
+	return (count);
 }
