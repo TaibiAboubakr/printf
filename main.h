@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 int __putchar(char);
 int _puts(char *);
 int _slen(char *);
@@ -23,6 +24,7 @@ int convert_hex_upper(unsigned int n, int count);
 int _putS(char *c);
 int rot13(char *str);
 int put_rev(char *str);
+int print_addr(uintptr_t num);
 /**
  * struct hex - struct match number with specific char in hex
  * @n: number in base hexa
