@@ -74,8 +74,8 @@ int _putS(char *c)
 		}
 		else
 		{
-		__putchar(*c);
-		count++;
+			__putchar(*c);
+			count++;
 		}
 		c++;
 	}
@@ -94,11 +94,11 @@ int rot13(char *str)
 	char letters[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char r13[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-		if (str == NULL)
-		{
-			_puts("(null)");
-			return (6);
-		}
+	if (str == NULL)
+	{
+		_puts("(null)");
+		return (6);
+	}
 	len = _slen(str);
 	p = (char *)malloc(sizeof(char) * (len + 1));
 	if (p == NULL)

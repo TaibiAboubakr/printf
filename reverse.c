@@ -43,7 +43,7 @@ int print_addr(uintptr_t num)
 	}
 
 	for (; num > 0; i++)
-{
+	{
 		hex[i] = hexa_table[num % 16];
 		num /= 16;
 	}
