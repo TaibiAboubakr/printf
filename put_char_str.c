@@ -69,14 +69,15 @@ int _putS(char *c)
 				__putchar(48);
 			convert_hex_upper((*c), 0);
 			count += 4;
-			c++;
-			if (!*c)
-				return (count);
+
 
 		}
+		else
+		{
 		__putchar(*c);
-		c++;
 		count++;
+		}
+		c++;
 	}
 	return (count);
 }
